@@ -1,31 +1,41 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+    <v-app id="inspire">
+        <v-system-bar status color="red darken-2">
+            <v-spacer></v-spacer>
+            <v-icon>network_wifi</v-icon>
+            <v-icon>signal_cellular_null</v-icon>
+            <v-icon>battery_full</v-icon>
+            <span>12:30</span>
+        </v-system-bar>
+        <v-content>
+            <router-view/>
+        </v-content>
+        <v-btn fab bottom right color="blue darken-2" dark fixed @click="dialog = !dialog">
+            <v-icon>search  </v-icon>
+        </v-btn>
+        <v-dialog v-model="dialog" width="800px">
+            <registration-form></registration-form>
+        </v-dialog>
+    </v-app>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+<script>
+import ySidebar from "@/views/Sidebar";
+import yayaList from "@/views/YayaList";
+import registrationForm from "@/views/RegistrationForm";
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+export default {
+    data: () => ({
+        dialog: false,
+        drawer: null
+    }),
+    props: {
+        source: String
+    },
+    components: {
+        ySidebar,
+        registrationForm,
+        yayaList
+    }
+};
+</script>
