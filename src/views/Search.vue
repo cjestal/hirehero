@@ -1,13 +1,14 @@
 <template>
     <v-card>
-        <v-card-title dark class="blue darken-3 py-4 title">
+        <v-card-title dark class="error py-4 title">
             Search Heroes
         </v-card-title>
         <v-container grid-list-sm class="pa-4">
             <v-layout row wrap>
                 <v-flex xs12 align-center justify-space-between>
                     <v-layout align-center>
-                        <v-text-field prepend-icon="person" placeholder="Name"></v-text-field>
+                        <h3 style="color:grey">Rating: </h3>
+                        <v-rating color="red darken-2" v-model="rating"></v-rating>
                     </v-layout>
                 </v-flex>
 
@@ -36,8 +37,11 @@
             </v-layout>
         </v-container>
         <v-card-actions>
-            <v-btn flat color="primary" @click="dialog = false">Cancel</v-btn>
-            <v-btn flat @click="dialog = false">Search</v-btn>
+            <v-spacer></v-spacer>
+            <v-btn flat color="grey" @click="dialog1 = false">Cancel</v-btn>
+            <v-btn color="error" @click="dialog1 = false">
+                Search
+            </v-btn>
         </v-card-actions>
     </v-card>
 </template>
@@ -53,7 +57,8 @@ export default {
             "Cooking",
             "Pool cleaning",
             "Cat sitting"
-        ]
+        ],
+        rating: 3
     }),
     methods: {
         remove(item) {

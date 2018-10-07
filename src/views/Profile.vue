@@ -10,8 +10,8 @@
                     ></v-carousel-item>
                 </v-carousel>
 
-                <booking></booking>
-
+                <!-- <booking></booking> -->
+                <profile-actions></profile-actions>
                 <v-list two-line>
                     <v-subheader>Profile</v-subheader>
                     <v-list-tile>
@@ -39,7 +39,7 @@
 
                         <v-list-tile-content>
                             <v-list-tile-title>
-                                <v-rating v-model="details.rating" readonly></v-rating>
+                                <v-rating color="red darken-2" v-model="details.rating" readonly></v-rating>
                             </v-list-tile-title>
                             <v-list-tile-sub-title>Rating</v-list-tile-sub-title>
                         </v-list-tile-content>
@@ -59,7 +59,7 @@
                     <v-subheader>Overview & Skills</v-subheader>
                     <v-list-tile>
                         <v-list-tile-action>
-                            <v-icon color="indigo">local_florist</v-icon>
+                            <v-icon color="red darken-2">local_florist</v-icon>
                         </v-list-tile-action>
 
                         <v-list-tile-content>
@@ -70,7 +70,7 @@
 
                     <v-list-tile>
                         <v-list-tile-action>
-                            <v-icon color="indigo">local_dining</v-icon>
+                            <v-icon color="red darken-2">local_dining</v-icon>
                         </v-list-tile-action>
 
                         <v-list-tile-content>
@@ -81,7 +81,7 @@
 
                     <v-list-tile>
                         <v-list-tile-action>
-                            <v-icon color="indigo">child_friendly</v-icon>
+                            <v-icon color="red darken-2">child_friendly</v-icon>
                         </v-list-tile-action>
 
                         <v-list-tile-content>
@@ -103,38 +103,42 @@
 <script>
 import Reviews from "@/views/Reviews";
 import Booking from "@/views/Booking";
+import ProfileActions from "@/views/ProfileActions"
+import jaja from "@/assets/jaja.jpg";
 
 export default {
     components: {
         Reviews,
-        Booking
+        Booking,
+        ProfileActions
     },
     data: () => ({
+        jaja: jaja,
         allowedDates: val => parseInt(val.split("-")[2], 10) % 2 === 0,
         time: [7, 12],
         dates: [],
         pics: [
             {
-                src: "https://randomuser.me/api/portraits/women/32.jpg"
+                src: jaja
             },
             {
-                src: "https://randomuser.me/api/portraits/women/32.jpg"
+                src: jaja
             },
             {
-                src: "https://randomuser.me/api/portraits/women/32.jpg"
+                src: jaja
             },
             {
-                src: "https://randomuser.me/api/portraits/women/32.jpg"
+                src: jaja
             }
         ],
         details: {
             rating: 4.5,
             id: 1,
-            name: "Pia Perez",
+            name: "Jaja Perez",
             location: "Banilad",
             skills: "Cooks, Cleans, Babysit",
             rate: "50.00",
-            pic: "https://randomuser.me/api/portraits/women/32.jpg"
+            pic: jaja
         }
     })
 };

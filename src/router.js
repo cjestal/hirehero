@@ -1,29 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 // import Home from './views/Home.vue'
-import yayalist from './views/YayaList.vue'
+import List from './views/List.vue'
+import login from './views/Login.vue'
+import Auth from './views/Auth.vue'
+import AuthSuccess from './views/AuthSuccess.vue'
 
 Vue.use(Router)
 
 export default new Router({
     mode: 'history',
     base: process.env.BASE_URL,
-    routes: [{
-            path: '/',
-            name: 'home',
-            component: yayalist
-        },
-        {
-            path: '/about',
-            name: 'about',
-            component: () =>
-                import( /* webpackChunkName: "about" */ './views/About.vue')
-        },
-        {
-            path: '/profile',
-            name: 'profile',
-            component: () =>
-                import( /* webpackChunkName: "about" */ './views/YayaProfile.vue')
-        }
+    routes: [
+        { path: '/', component: Auth},
+        { path: '/auth', component: Auth},
+        { path: '/success', component: AuthSuccess },
+        { path: '/login', component: login},
+        { path: '/list', component: List},
+        { path: '/profile', component: () => import( /* webpackChunkName: "about" */ './views/Profile.vue')}
     ]
 })

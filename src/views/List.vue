@@ -17,39 +17,9 @@
 
             <v-flex
                 xs12
-                v-for="yaya in yayas"
-                :key="yaya.id">
-                <v-card color="red darken-2" class="white--text">
-                    <v-layout>
-                    <v-flex xs5>
-                        <v-img :src="yaya.pic" height="125px" contain></v-img>
-                    </v-flex>
-                    <v-flex xs7>
-                        <v-card-title primary-title>
-                        <div>
-                            <div class="headline">{{ yaya.name }}</div>
-                            <!-- <div>{{ yaya.location }}</div> -->
-                            <div>{{ yaya.skills }}</div>
-                            <div>Php {{ yaya.rate }}/Hr</div>
-                            <div>
-                                <v-icon>star_border</v-icon>
-                                <v-icon>star_border</v-icon>
-                                <v-icon>star_border</v-icon>
-                                <v-icon>star_border</v-icon>
-                                <v-icon>star_border</v-icon>
-                            </div>
-                        </div>
-                        </v-card-title>
-                    </v-flex>
-                    </v-layout>
-                    <v-divider light></v-divider>
-                    
-                    <v-card-actions >
-                        <v-btn flat dark @click="gotoYaya">Profile</v-btn>
-                        <v-btn flat dark>Reviews</v-btn>
-                    </v-card-actions>
-
-                </v-card>
+                v-for="hero in heroes"
+                :key="hero.id">
+                <list-item :hero=hero></list-item>
             </v-flex>
         </v-layout>
       </v-container>
@@ -57,17 +27,20 @@
 </template>
 
 <script>
+import jaja from "@/assets/jaja.jpg";
+import ListItem from "@/views/ListItem"
+
 export default {
     data: () => ({
         notice: true,
-        yayas: [
+        heroes: [
             {
                 id: 1,
-                name: "Pia",
+                name: "Jaja",
                 location: "Banilad",
                 skills: "Cooks, Cleans, Babysit",
                 rate: "50.00",
-                pic: "https://randomuser.me/api/portraits/women/32.jpg"
+                pic: jaja
             },
             {
                 id: 2,
@@ -111,12 +84,10 @@ export default {
             }
         ]
     }),
-    methods: {
-        gotoYaya() {
-            this.$router.push("profile");
-            // alert("pressed!");
-        }
-    }
+    components: {
+        ListItem
+    },
+    
 };
 </script>
 
