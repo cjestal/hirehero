@@ -28,6 +28,7 @@ export default {
         var uiConfig = {
             signInSuccessUrl: "/success",
             signInOptions: [
+                firebase.auth.FacebookAuthProvider.PROVIDER_ID,
                 firebase.auth.GoogleAuthProvider.PROVIDER_ID,
                 firebase.auth.EmailAuthProvider.PROVIDER_ID
             ]

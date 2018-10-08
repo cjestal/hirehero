@@ -1,5 +1,4 @@
 <template>
-
     <v-content>
       <v-container fluid fill-height>
         <v-layout row wrap align-center>

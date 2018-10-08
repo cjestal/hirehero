@@ -1,7 +1,8 @@
 {
-    "name": "yaya-app",
-    "short_name": "yaya-app",
-    "icons": [{
+    "name": "Hire Hero",
+    "short_name": "Hire Hero",
+    "icons": [
+        {
             "src": "\/android-icon-36x36.png",
             "sizes": "36x36",
             "type": "image\/png",
@@ -39,7 +40,7 @@
         }
     ],
     "start_url": "/index.html",
-    "display": "standalone",
+    "display": "fullscreen",
     "background_color": "#000000",
     "theme_color": "#4DBA87"
 }
