@@ -186,6 +186,7 @@
 
             </v-card-actions>
         </v-card>
+        
     </div>
 </template>
 
@@ -196,6 +197,7 @@ export default {
     data: () => ({
         allowedDates: val => parseInt(val.split("-")[2], 10) % 2 === 0,
         time: [7, 12],
+        snackbar: false,
         dates: [],
         page: 1,
         radios: "radio-1",
@@ -211,6 +213,7 @@ export default {
                 this[l] = false;
                 this.dialog = false;
                 this.page = 1;
+                this.hideModal();
             }, 3000);
 
             this.loader = null;
@@ -226,6 +229,9 @@ export default {
             let days = this.dates.length;
             let hours = this.time[1] - this.time[0];
             return days * hours * 50;
+        },
+        hideModal() {
+            this.$store.commit("setShowModal", false);
         }
     }
 };

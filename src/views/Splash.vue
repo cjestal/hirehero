@@ -14,7 +14,7 @@
                 color="primary"
                 style="bottom: -20px;"
                 >
-                {{ value }}
+                {{ value }}%
                 </v-progress-circular>
             <br>
             <br>
@@ -43,10 +43,11 @@ export default {
     },
     mounted() {
         this.interval = setInterval(() => {
-            if (this.value === 100) {
-                return (this.value = 0);
+            if (this.value > 100) {
+                // return (this.value = 0);
+                this.$router.push("/list");
             }
-            this.value += 12.5;
+            this.value += 15;
         }, 500);
     }
 };

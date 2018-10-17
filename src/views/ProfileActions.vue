@@ -1,7 +1,7 @@
 <template>
     <div class="text-xs-center">
         <v-dialog v-model="hireDialog" width="500" >
-            <v-btn slot="activator" color="error" dark large @click="page = 1">
+            <v-btn slot="activator" color="error" dark large @click="toggleModal">
                 <v-icon left>face</v-icon>
                 Hire
             </v-btn>
@@ -19,21 +19,30 @@
 </template>
 
 <script>
-import ReviewForm from '@/views/ReviewForm'
-import Booking from '@/views/Booking'
+import ReviewForm from "@/views/ReviewForm";
+import Booking from "@/views/Booking";
 
 export default {
     data: () => ({
-        hireDialog: false,
-        reviewDialog: false,
+        // hireDialog: false,
+        reviewDialog: false
     }),
     components: {
         ReviewForm,
         Booking
+    },
+    computed: {
+        hireDialog() {
+            return this.$store.getters.showModal;
+        }
+    },
+    methods: {
+        toggleModal() {
+            this.$store.commit("setShowModal", true);
+        }
     }
-}
+};
 </script>
 
 <style>
-
 </style>

@@ -1,6 +1,23 @@
 <template>
     <v-app id="inspire">
-        <router-view/>
+         <v-toolbar
+            v-show="$route.path!=='/'"
+            absolute
+            color="red darken-2"
+            dark
+            scroll-off-screen
+            scroll-target="#scrolling-techniques">
+            <v-spacer></v-spacer>
+            <v-toolbar-title>
+                <v-avatar size="30px" style="background-color:white">
+                    <img :src="logo">
+                </v-avatar>
+            </v-toolbar-title>
+
+            </v-toolbar>
+            <v-content style="margin-top:56px;">
+                <router-view/>
+            </v-content>
         <!-- <section>
             <v-toolbar
             absolute
